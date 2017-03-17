@@ -44,6 +44,7 @@ def obtainFoursquareVenue(data):
 
 	print "Star obtaining Foursquare data"
 	str3 = "home";
+	'''This for should obtain certain data'''
 	#print i.find(str3,0);
 	for i in data:
 		if(i.find(str3,0)!=-1):

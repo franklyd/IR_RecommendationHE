@@ -17,8 +17,8 @@ es = Elasticsearch()
 for i in range(len(data)):
     # PUT
     res = es.index(
-        index="Venue_test", doc_type='Amsterdam', id=i + 1, body=data[i])
+        index="bm25_test", doc_type='table', id=i + 1, body=data[i])
     # GET
-    res = es.get(index="Venue_test", doc_type='Amsterdam', id=i + 1)
+    res = es.get(index="bm25_test", doc_type='table', id=i + 1)
     
 print('####Indexing is done####')

@@ -7,7 +7,7 @@ qry = {"query":
                 {"query": "Movies"}
            }
       }
-res = es.search(index="Venue_test", doc_type="Amsterdam", body=qry)
+res = es.search(index="bm25_test", doc_type="table", body=qry)
 print("%d documents found" % res['hits']['total'])
 
 data = []

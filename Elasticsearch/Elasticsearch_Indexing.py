@@ -1,5 +1,6 @@
 # insert data into elasticsearch
 import json
+import tqdm
 
 json_file = open('cleaned_ams_venues_data.json')
 json_str = json_file.read()
@@ -14,6 +15,7 @@ for key in json_data:
 from elasticsearch import Elasticsearch
 es = Elasticsearch()
 
+print "Start indexing"
 for i in range(len(data)):
     # PUT
     res = es.index(

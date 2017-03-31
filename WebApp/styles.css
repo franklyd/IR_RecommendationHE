@@ -35,6 +35,19 @@ h1{
 #searchForm{
 	/* The search form. */
 	background-color:#4C5A65;
+	padding:50px 30px 30px;
+	margin:30px 0;
+	position:relative;
+    width: 450px;
+
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+}
+
+#loginForm{
+	/* The search form. */
+	background-color:#4C5A65;
 	padding:50px 50px 30px;
 	margin:80px 0;
 	position:relative;
@@ -43,7 +56,6 @@ h1{
 	-webkit-border-radius:16px;
 	border-radius:16px;
 }
-
 fieldset{
 	border:none;
 }
@@ -63,17 +75,15 @@ fieldset{
 	border:none;
 	color:#888888;
 	background:url("img/searchBox.png") no-repeat;
-	
-	float:left;
+    float:middle;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:15px;
 	height:36px;
-	line-height:36px;
-	margin-right:12px;
+	margin-right:4px;
 	outline:medium none;
-	padding:0 0 0 35px;
+	padding:0 0 0 25px;
 	text-shadow:1px 1px 0 white;
-	width:385px;
+	width:350px;
 }
 
 /* The UL that contains the search type icons */
@@ -92,13 +102,6 @@ fieldset{
 	text-indent:-9999px;
 	cursor:pointer;
 	margin-right:5px;
-}
-input[type=submit] {
-    background: url("img/Login-button.png");
-    border: 0;
-    display: block;
-    height: _the_image_height;
-    width: _the_image_width;
 }
 
 /* Styling each icon */
@@ -130,8 +133,10 @@ span.arrow{
 }
 
 
+
+
 #submitButton{
-	background:url('img/buttons.png') no-repeat;
+	
 	width:83px;
 	height:36px;
 	text-indent:-9999px;
@@ -180,6 +185,17 @@ label{
 input[type=radio]{
 	cursor:pointer;
 	/*float:left;*/
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 85%;
+    border-radius: 15px;
 }
 
 

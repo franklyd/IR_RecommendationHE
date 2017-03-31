@@ -8,7 +8,7 @@ import json as json
 import time
 import tqdm
 
-NUMER_PROFILES = 10;
+NUMER_PROFILES = 300;
 
 def get_users_id(crs):
     users_id = [raw.strip().split()[0] for raw in crs if raw.strip().split()[0].find('home')==-1]
@@ -72,17 +72,17 @@ def obtainUserProfile(users_id,city):
 def saveConstantJSON(users_meta,city):
     #a_dict = {'new_key': 'new_value'}
     
-    with open('%s_users_data.json' %city) as f:
+    with open('%s_twitter_users_profile_300us.json' %city) as f:
         data = json.load(f)
     
     data.update(users_meta)
     
-    with open('%s_users_data.json' %city,'w') as f:
+    with open('%s_twitter_users_profile_300us.json' %city,'w') as f:
         json.dump(data, f)
         
 
 def saveJsonFile(dic, city):
-    with open('%s_users_data.json' %city,'w') as outfile:
+    with open('%s_twitter_users_profile_300us.json' %city,'w') as outfile:
         #feeds ={}
         #feeds.append(dic)
         json.dump(dic,outfile)

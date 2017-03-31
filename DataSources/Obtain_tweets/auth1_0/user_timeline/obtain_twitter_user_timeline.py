@@ -7,7 +7,7 @@ import urllib
 import json as json
 import time
 
-NUMBER_OF_TWEETS = 20;
+NUMBER_OF_TWEETS = 3000;
 NUMER_PROFILES = 10000;
 LANGUAGE = "en" #Obtain english language
 
@@ -97,12 +97,12 @@ def obtainUserProfile(users_id,city):
                                 if(user[tweet]["lang"]=='en'):
                                     print "Tweet ", user[tweet]["text"]
                                     users_meta[id] =  user[tweet]
-                    except:
-                        pass
+                except:
+                    pass
                     
                     
         if(i==NUMER_PROFILES):
-            saveJsonFile(users_meta, city)
+            saveConstantJSON(users_meta, city)
             break
         
         #saveJsonFile(users_meta, city)
@@ -112,17 +112,17 @@ def obtainUserProfile(users_id,city):
 def saveConstantJSON(users_meta,city):
     #a_dict = {'new_key': 'new_value'}
     
-    with open('%s_users_data.json' %city) as f:
+    with open('%s_users_data_3000t10000us.json' %city) as f:
         data = json.load(f)
     
     data.update(users_meta)
     
-    with open('%s_users_data.json' %city,'w') as f:
+    with open('%s_users_data_3000t10000us.json' %city,'w') as f:
         json.dump(data, f)
 
 
 def saveJsonFile(dic, city):
-    with open('%s_users_data_10000.json' %city,'w') as outfile:
+    with open('%s_users_data_3000t10000us.json' %city,'w') as outfile:
         json.dump(dic,outfile)
         #json.dumps(dic, cls=SetEncoder)
         print "Saved complete JSON"

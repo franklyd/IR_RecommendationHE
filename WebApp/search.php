@@ -13,25 +13,18 @@
 <form id="loginname">
 	<p id="paragraph">
 	<?php
-    echo "Welcome to our Recommendation Site,".$_GET['user']."(".$_GET['id'].")";
+    echo "Welcome to your Recommendation Site,".$_GET['user']."(".$_GET['id'].")";
 	?>
 	</p>
 </form>
 <div id="page" align="center"><strong>My Recommendation Page</strong>
   <form id="searchForm" method="post">
 	  <fieldset>
-        
-           	<input id="s" type="text" />
-            
-            <input type="submit" value="Search" id="submitButton" />
-            
-            <div id="searchInContainer">
-                <input type="radio" name="check" value="site" id="searchSite" checked />
-                <label for="searchSite" id="siteNameLabel">Recommendation</label>
-                
-                <input type="radio" name="check" value="web" id="searchWeb" />
-                <label for="searchWeb">Explanation</label>
-			</div>
+
+           
+
+                <button  type="submit" value="Submit" onclick="doRecommend();" name="recommendation"><a href="recommendation.html"></a>Recommendation</button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" value="Submit" onclick="doExplain();" name="explanation" >Explanation</button>
                         
 
     </fieldset>

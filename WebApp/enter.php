@@ -5,6 +5,18 @@
 <title>Recommendation Page</title>
 
 <link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript">
+    function validate()
+{
+ var error="";
+ var name = document.getElementById( "name_of_user" );
+ if( name.value == "" )
+ {
+  error = " You Have To Write Your Name. ";
+  document.getElementById( "error_para" ).innerHTML = error;
+  return false;
+ }
+    </script>
 
 </head>
 
@@ -14,17 +26,18 @@
   <p><strong>My Recommendation Page</strong></p>
   <p>&nbsp;</p>
   <p>&nbsp; </p>
-  <form id="loginForm" method="POST">
+  <form id="searchForm" method="POST">
 	  <fieldset>
         
            	<input id="s" type="text" name="input" />
             
-            <input type="submit" value="login" id="login" name="login" />
+          
+           <button type="submit" value="Login"  name="login" style="color:black;">Login</button>
             
     <?php 
  
 /* $ID = $_POST['user']; $Password = $_POST['pass']; 
-
+sdsdsdsd
 */ 
 
 	session_start(); 
@@ -40,7 +53,7 @@
 		 $_SESSION['FirstName'] = $row['FirstName']; 
 		 $name=$_SESSION['FirstName'];
 		 echo "SUCCESSFULLY LOGIN TO USER PROFILE PAGE...".$_SESSION['FirstName']; 
-		 header("Location:http://localhost/search.php?user=".$row['FirstName']."&id=".$row['UserID']);
+		 header("Location:http://localhost/irproject/WebApp/search.php?user=".$row['FirstName']."&id=".$row['UserID']);
 	 }
 	 else 
 	 { 
@@ -57,6 +70,9 @@
   </form>
 
     <div id="resultsDiv"></div>
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;<p></p>
+    <div class="footer">&copy;A Tu Delft initiative</div>
 </div>
+  
 </body>
 </html>

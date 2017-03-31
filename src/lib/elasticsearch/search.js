@@ -36,11 +36,10 @@ var c=[];
     type: 'user',
     q: '225059732'
 }).then(function(body) {
-    var hits = body.hits.hits[0];
-    console.log(body.hits.hits[0]);
+   // var hits = body.hits.hits[0];
+   // console.log(body.hits.hits[0]);
     temp=body.hits.hits[0];
-    //console.log(body.hits.hits[0]);
-}, function(error) {
+    }, function(error) {
     console.trace(error.message);
 });
 
@@ -57,8 +56,8 @@ function Display() {
     type: 'london_instagram',
     q: venueIds[i]
 }).then(function(body) {
-    var hits = body.hits.hits[0];
-    console.log(body.hits.hits[0]);
+    //var hits = body.hits.hits[0];
+    //console.log(body.hits.hits[0]);
     venue=body.hits.hits[0];
     c.push(venue);
     //console.log(body.hits.hits[0]);
@@ -67,8 +66,8 @@ function Display() {
 });
   }
 }
-function venue(){
-  console.log("tes");
+function Venue(){
+  console.log(c);
 }
 /*
 

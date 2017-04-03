@@ -1,57 +1,35 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Recommendation Page</title>
-<!-- JS lib elasticsearch-->
-<!-- <script src="../lib/elasticsearch/src/elasticsearch.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!--
-<script src="../lib/elasticsearch/elasticsearch-js/elasticsearch.min.js"></script>
--->
-<script src="../lib/elasticsearch/elasticsearch-js/elasticsearch.jquery.min.js"></script>
-<!-- <script src="../lib/elasticsearch/elasticsearch-js/elasticsearch.js"></script>-->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Recommendation Page</title>
 
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="styles_index.css" />
 
 </head>
-
 <body>
-<button onclick="Display();"> Get Users </button>
-<button onclick="Venue();"> Show Recommendations</button>
+
+<script type="text/javascript">
+function abc(xyz){
+
+window.location.replace("main.html?userid="+xyz);
+}
+</script>
 <img  class="logo" src="img/TU_Delft_logo_RGB.png" width="110" height="75">
-<form id="loginname">
-	<p id="paragraph">
-	<?php
-    echo "Welcome to our Recommendation Site,".$_GET['user']."(".$_GET['id'].")";
-	?>
-	</p>
-</form>
-<div id="page" align="center"><strong>My Recommendation Page</strong>
-  <form id="searchForm" method="post">
-	  <fieldset>
-
-           	<input id="s" type="text" />
-
-            <input type="submit" value="Search" id="submitButton" />
-						<button onclick="helloSearch();">SEARCH PLEASE!</button>
-
-            <div id="searchInContainer">
-                <input type="radio" name="check" value="site" id="searchSite" checked />
-                <label for="searchSite" id="siteNameLabel">Recommendation</label>
-
-                <input type="radio" name="check" value="web" id="searchWeb" />
-                <label for="searchWeb">Explanation</label>
-			</div>
-
-
-    </fieldset>
-  </form>
-
+<div id="page" align="center" >
+    
+    <p><strong>My Recommendation Page</strong></p>
+  <p>&nbsp;</p>
+  <p>&nbsp; </p>
+   
+<input name="username" type="text" id="txt1" name="username"/>
+<input type="submit" id="first" value="Login" onclick="abc(document.getElementById('txt1').value)"/>
+       
+    </div>
     <div id="resultsDiv"></div>
-</div>
-    <script src="lib/elasticsearch/query.js"></script>  
-    <script src="lib/elasticsearch/search.js"></script>
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;<p></p>
+    <div class="footer">&copy;A Tu Delft initiative</div>
+</div>   
 
 </body>
 </html>

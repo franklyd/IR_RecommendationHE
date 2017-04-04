@@ -10,15 +10,7 @@ import tqdm
 
 NUMER_PROFILES = 300;
 
-def get_users_id(crs):
-    users_id = [raw.strip().split()[0] for raw in crs if raw.strip().split()[0].find('home')==-1]
-    users_id= set(users_id)
-    return users_id
-
-
-
-
-
+'''Obtain access to the Twitter API'''
 def obtainAuthenticationUrl():
     twitter = OAuth1Session(    client_key = CONSUMER_KEY,
                             client_secret = CONSUMER_SECRET,
@@ -28,15 +20,23 @@ def obtainAuthenticationUrl():
     #result = twitter.get(url)
     return twitter
 
+'''Get the users ids from the .txt file given by @jyang. '''
+def get_users_id(crs):
+    users_id = [raw.strip().split()[0] for raw in crs if raw.strip().split()[0].find('home')==-1]
+    #Delete the repeated users
+    users_id= set(users_id)
+    print "User list size", len(users_id)
+    return users_id
+
+'''Create the HTTP Requst to Twitter API'''
 def obtainTwitterUserNameJSON(user_id):
     client = obtainAuthenticationUrl()
     url = 'https://api.twitter.com/1.1/users/lookup.json?user_id=%s' % user_id
     user_metadata = client.get(url)
-    #print user_metadata.text
     user_metadata = json.loads(user_metadata.text)
     return user_metadata
 
-'''TODO must put the '''
+'''Obtain the user profile from twitter'''
 def obtainUserProfile(users_id,city):    
     users_meta = {}
     print "Start obtaining users profile"
@@ -62,35 +62,29 @@ def obtainUserProfile(users_id,city):
                     users_meta[id] = obtainTwitterUserNameJSON(id)
                     print "Name of the User:", user[0]["screen_name"]
                          
-        if(i==NUMER_PROFILES):
-            saveConstantJSON(users_meta, city)
-            break
+        #if(i==NUMER_PROFILES):
+         #   saveConstantJSON(users_meta, city)
+          #  break
         saveConstantJSON(users_meta, city)
     return users_meta
 
 
 def saveConstantJSON(users_meta,city):
-    #a_dict = {'new_key': 'new_value'}
-    
-    with open('%s_twitter_users_profile_300us.json' %city) as f:
-        data = json.load(f)
-    
-    data.update(users_meta)
-    
-    with open('%s_twitter_users_profile_300us.json' %city,'w') as f:
+    with open('%s_twitter_users_profile_Allus.json' %city) as f:
+        data = json.load(f)    
+        data.update(users_meta)    
+   
+    with open('%s_twitter_users_profile_Allus.json' %city,'w') as f:
         json.dump(data, f)
         
-
 def saveJsonFile(dic, city):
-    with open('%s_twitter_users_profile_300us.json' %city,'w') as outfile:
-        #feeds ={}
-        #feeds.append(dic)
+    with open('%s_twitter_users_profile_Allus.json' %city,'w') as outfile:
         json.dump(dic,outfile)
-        #json.dumps(dic, cls=SetEncoder)
         print "Saved complete JSON"
     outfile.close()
 
 #cities = ['london','amsterdam','paris','rome']
+'''Just iterate in the city of London'''
 cities = ['london']
 
 for city in cities:
@@ -103,6 +97,4 @@ for city in cities:
     print "Finished program for", city
     
 
-
-
-print "Process finished"
+print "Process for obtainin profile finished finished"
